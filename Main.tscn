@@ -7,3 +7,5 @@
 
 [node name="Player" parent="." unique_id=553625836 instance=ExtResource("1_glv2v")]
 script = ExtResource("2_uu6xs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player" unique_id=163073769]
