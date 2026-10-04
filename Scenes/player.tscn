@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bmen3d8rbe25n"]
 
-[ext_resource type="Texture2D" uid="uid://ctdi24wa0m7u1" path="res://icon.svg" id="1_v0iea"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbtmm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f60y1"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [node name="Player" type="CharacterBody2D" unique_id=553625836]
 
@@ -11,4 +12,4 @@ shape = SubResource("RectangleShape2D_nbtmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=887595995]
 position = Vector2(66, 68)
-texture = ExtResource("1_v0iea")
+texture = SubResource("CompressedTexture2D_f60y1")

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var acceleration : float = 0.05
 @export var deceleration : float = 0.08
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Add the gravity.
 	get_input()
 func get_input() -> void:
