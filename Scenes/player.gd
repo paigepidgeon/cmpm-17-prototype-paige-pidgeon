@@ -1,17 +1,17 @@
 extends CharacterBody2D
 
 @export var speed : float = 200
-@export var acceleration : float = 0.05
+@export var acceleration : float = 0.08
 @export var deceleration : float = 0.08
 
 func _physics_process(_delta: float) -> void:
 	# Add the gravity.
 	get_input()
 func get_input() -> void:
-	
+
 	if Input.is_action_pressed("D"):
 		velocity.x = lerp(velocity.x, speed, acceleration)
-	elif Input.is_action_pressed("A"):
+	if Input.is_action_pressed("A"):
 		velocity.x = lerp(velocity.x, -speed, acceleration)
 	else: velocity.x = lerp(velocity.x, 0.0 , deceleration)
 	if Input.is_action_pressed("S"):
