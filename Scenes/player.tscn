@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bmen3d8rbe25n"]
 
+[ext_resource type="Script" uid="uid://cl2v44iuf4aje" path="res://Scenes/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://u8igxeactp35" path="res://png/Knight png push.png" id="1_v0iea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbtmm"]
 size = Vector2(31, 108)
 
 [node name="Player" type="CharacterBody2D" unique_id=553625836]
-collision_layer = 3
+script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1041223361]
 position = Vector2(-1.5, 10)
@@ -15,3 +16,6 @@ shape = SubResource("RectangleShape2D_nbtmm")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=887595995]
 position = Vector2(2, 3)
 texture = ExtResource("1_v0iea")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1494139075]
+zoom = Vector2(2, 2)

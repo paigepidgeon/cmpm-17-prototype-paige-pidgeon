@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://w1dftsycb21l"]
 
+[ext_resource type="Script" uid="uid://e1epsd1flflo" path="res://Scenes/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://qorlm8pqlmvg" path="res://ArtFiles/Slime_Enemy_Sprite_Sheet_Godot_CMPM_17_Paige_Pidgeon-Sheet.png" id="1_hghv2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1f0kj"]
@@ -46,11 +47,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yb8li"]
-radius = 57.035076
+radius = 263.09314
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_br5i0"]
 
 [node name="enemy" type="CharacterBody2D" unique_id=696496068]
+script = ExtResource("1_1f0kj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=893163534]
 sprite_frames = SubResource("SpriteFrames_ne65n")
@@ -59,11 +61,12 @@ frame = 1
 frame_progress = 0.5803612
 
 [node name="detection_area" type="Area2D" parent="." unique_id=1932940063]
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area" unique_id=78010187]
 shape = SubResource("CircleShape2D_yb8li")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=319057635]
 shape = SubResource("CircleShape2D_br5i0")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

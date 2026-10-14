@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-var speed = 35
+var speed = 25
 var player_chase = false
 var player = null
 
 func _physics_process(delta):
 	if player:
-			# Cslculate direction to the player
-			var direction = (player.position - position).normalized()
+			
+			position += (player.position - position)/speed
 		
-		#move towards the playervelocity = direction * speed
+		
 	move_and_slide()
 		
 		#play animation based on movement 
