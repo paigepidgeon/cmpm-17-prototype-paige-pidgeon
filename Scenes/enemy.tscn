@@ -46,27 +46,32 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yb8li"]
-radius = 263.09314
+[sub_resource type="CircleShape2D" id="CircleShape2D_mif70"]
+radius = 108.37435
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_br5i0"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yb8li"]
+radius = 8.944272
 
 [node name="enemy" type="CharacterBody2D" unique_id=696496068]
 script = ExtResource("1_1f0kj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=893163534]
+position = Vector2(5.4836273e-06, 0.2500018)
+scale = Vector2(1.1875004, 1.1406251)
 sprite_frames = SubResource("SpriteFrames_ne65n")
 animation = &"enemy_hop"
-frame = 1
-frame_progress = 0.5803612
+autoplay = "enemy_hop"
+frame_progress = 0.16710116
 
 [node name="detection_area" type="Area2D" parent="." unique_id=1932940063]
+position = Vector2(-2.4795532e-05, 0.24999428)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area" unique_id=78010187]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area" unique_id=2099262483]
+shape = SubResource("CircleShape2D_mif70")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=78010187]
+position = Vector2(-2.4795532e-05, 0.24999428)
 shape = SubResource("CircleShape2D_yb8li")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=319057635]
-shape = SubResource("CircleShape2D_br5i0")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

@@ -1,6 +1,7 @@
 extends CharacterBody2D
+class_name player
 
-@export var speed : float = 200
+@export var speed : float = 400
 @export var acceleration : float = 0.08
 @export var deceleration : float = 0.08
 
