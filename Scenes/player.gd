@@ -22,3 +22,8 @@ func get_input() -> void:
 	else:
 		velocity.y = lerp(velocity.y, 0.0, deceleration)
 	move_and_slide()
+
+
+		#play animation based on movement 
+	if velocity.length() >0:
+		$AnimatedSprite2D.play("player_walk")
