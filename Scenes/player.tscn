@@ -1,24 +1,60 @@
 [gd_scene format=3 uid="uid://bmen3d8rbe25n"]
 
 [ext_resource type="Script" uid="uid://cl2v44iuf4aje" path="res://Scenes/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://u8igxeactp35" path="res://png/Knight png push.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://cdvlhx26humqy" path="res://ArtFiles/KnightSprint-Sheet.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bpmhuvgdkjwa7" path="res://Assets/Carrot.png" id="3_6t5aa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbtmm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}],
+"loop": 1,
+"name": &"player_walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbtmm"]
 size = Vector2(17.5, 47)
 
 [node name="Player" type="CharacterBody2D" unique_id=553625836]
-position = Vector2(19, 22)
 script = ExtResource("1_cvnsp")
 speed = 300.0
 acceleration = 0.2
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606868985]
+sprite_frames = SubResource("SpriteFrames_nbtmm")
+animation = &"player_walk"
+autoplay = "player_walk"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1041223361]
 shape = SubResource("RectangleShape2D_nbtmm")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1284228483]
-scale = Vector2(0.31439394, 0.39962125)
-texture = ExtResource("1_v0iea")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=214648590]
 zoom = Vector2(3.5, 3.5)

@@ -111,4 +111,3 @@ tile_set = SubResource("TileSet_nbtmm")
 [node name="Player" parent="." unique_id=553625836 instance=ExtResource("3_y4dr7")]
 
 [connection signal="body_entered" from="goal1" to="goal1" method="_on_body_entered"]
-[connection signal="body_entered" from="goal1" to="Player" method="_on_goal_body_entered"]

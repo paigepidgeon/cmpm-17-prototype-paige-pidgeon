@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://bkmtmaqyobmqa"]
 
+[ext_resource type="Script" uid="uid://m01ctnv4gcae" path="res://Scenes/goal_2.gd" id="1_1q6tm"]
 [ext_resource type="Texture2D" uid="uid://c00ha6awpdt4t" path="res://Assets/tileset_template_3-export.png" id="1_smnlx"]
 [ext_resource type="PackedScene" uid="uid://w1dftsycb21l" path="res://Scenes/enemy.tscn" id="2_12fag"]
 [ext_resource type="PackedScene" uid="uid://bmen3d8rbe25n" path="res://Scenes/player.tscn" id="3_12fag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jotil"]
-size = Vector2(145, 121)
+size = Vector2(163, 121)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nmjpi"]
 texture = ExtResource("1_smnlx")
@@ -165,10 +166,11 @@ sources/0 = SubResource("TileSetAtlasSource_nmjpi")
 
 [node name="Level 2" type="Node2D" unique_id=98794620]
 
-[node name="goal" type="Area2D" parent="." unique_id=945095285]
+[node name="goal2" type="Area2D" parent="." unique_id=945095285]
+script = ExtResource("1_1q6tm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="goal" unique_id=1181182168]
-position = Vector2(2556, 279)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goal2" unique_id=1181182168]
+position = Vector2(2580, 270)
 shape = SubResource("RectangleShape2D_jotil")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1304284828]
@@ -180,3 +182,6 @@ position = Vector2(1431, 132)
 
 [node name="Player" parent="." unique_id=553625836 instance=ExtResource("3_12fag")]
 position = Vector2(845, 235)
+
+[connection signal="body_entered" from="goal2" to="goal2" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="goal2" to="Player" method="_on_goal_2_body_shape_entered"]
