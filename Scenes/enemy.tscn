@@ -47,10 +47,9 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mif70"]
-radius = 581.7109
+radius = 160.18762
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yb8li"]
-radius = 8.944272
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyd6k"]
 
 [node name="enemy" type="CharacterBody2D" unique_id=696496068]
 script = ExtResource("1_1f0kj")
@@ -70,8 +69,10 @@ position = Vector2(-2.4795532e-05, 0.24999428)
 shape = SubResource("CircleShape2D_mif70")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=78010187]
+visible = false
 position = Vector2(-2.4795532e-05, 0.24999428)
-shape = SubResource("CircleShape2D_yb8li")
+shape = SubResource("CircleShape2D_lyd6k")
+disabled = true
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

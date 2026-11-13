@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c1a8c5nqp0tlu"]
+
+[ext_resource type="Script" uid="uid://jlvfkx5gujqs" path="res://rigid_body_2d.gd" id="1_snejh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yb8li"]
+radius = 558.03674
+
+[node name="horsepower" type="Node2D" unique_id=137896532]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=948958736]
+script = ExtResource("1_snejh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2134200217]
+visible = false
+shape = SubResource("CircleShape2D_yb8li")

@@ -38,22 +38,34 @@ texture = ExtResource("1_c5erv")
 9:3/0 = 0
 10:3/0 = 0
 1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:4/0 = 0
 7:4/0 = 0
 8:4/0 = 0
 9:4/0 = 0
 10:4/0 = 0
 1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:5/0 = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:5/0 = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:6/0 = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:6/0 = 0
+4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:8/0 = 0
 1:8/0 = 0
 2:8/0 = 0
@@ -91,6 +103,7 @@ texture = ExtResource("1_c5erv")
 8:14/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_nbtmm"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3qqdj")
 
 [node name="Level 1" type="Node2D" unique_id=603515910]
@@ -107,7 +120,12 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAEAAYAAAABAAAAAAAEAAYAAAACAAAAAAAEAAY
 tile_set = SubResource("TileSet_nbtmm")
 
 [node name="enemy" parent="." unique_id=696496068 instance=ExtResource("2_lyd6k")]
+position = Vector2(679, 11)
 
 [node name="Player" parent="." unique_id=553625836 instance=ExtResource("3_y4dr7")]
+position = Vector2(35, 39)
+
+[node name="enemy2" parent="." unique_id=805592000 instance=ExtResource("2_lyd6k")]
+position = Vector2(181, 274)
 
 [connection signal="body_entered" from="goal1" to="goal1" method="_on_body_entered"]
