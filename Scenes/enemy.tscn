@@ -47,7 +47,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mif70"]
-radius = 160.18762
+radius = 341.54294
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lyd6k"]
 
@@ -69,7 +69,6 @@ position = Vector2(-2.4795532e-05, 0.24999428)
 shape = SubResource("CircleShape2D_mif70")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=78010187]
-visible = false
 position = Vector2(-2.4795532e-05, 0.24999428)
 shape = SubResource("CircleShape2D_lyd6k")
 disabled = true
