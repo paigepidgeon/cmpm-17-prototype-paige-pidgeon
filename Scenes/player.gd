@@ -30,8 +30,8 @@ func get_input() -> void:
 		isAttacking = true
 		attackCounter += 1 
 		canUseHorsepower = false
-
 		$AnimatedSprite2D.play("gallop")
+
 
 	if attackCounter >= 2:
 		canUseHorsepower = true
@@ -77,6 +77,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "gallop":
 		isAttacking = false
 		hit_box.monitoring = false
+		canUseHorsepower = false
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):

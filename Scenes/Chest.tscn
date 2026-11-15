@@ -1,15 +1,21 @@
-[gd_scene format=3 uid="uid://o4k8py30wu21"]
+[gd_scene format=3 uid="uid://p3nq1edrjeer"]
 
-[ext_resource type="Script" uid="uid://dbsx3l7itrwtj" path="res://Chest.gd" id="1_4gslm"]
+[ext_resource type="Script" uid="uid://dbsx3l7itrwtj" path="res://Scenes/Chest.gd" id="1_ghm5h"]
+[ext_resource type="Texture2D" uid="uid://bhbgkqgw10w2i" path="res://Assets/chest_open.png" id="2_fqgxf"]
+[ext_resource type="Texture2D" uid="uid://dehxmig7c0q3t" path="res://Assets/chest_closed.png" id="3_2bf1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yb8li"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb8li"]
 
 [node name="Chest" type="Area2D" unique_id=1670544016]
-script = ExtResource("1_4gslm")
+script = ExtResource("1_ghm5h")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1705467701]
+[node name="ChestOpen" type="Sprite2D" parent="." unique_id=1145978648]
+texture = ExtResource("2_fqgxf")
+
+[node name="ChestClosed" type="Sprite2D" parent="." unique_id=689059927]
+texture = ExtResource("3_2bf1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2069039214]
 shape = SubResource("CircleShape2D_yb8li")
