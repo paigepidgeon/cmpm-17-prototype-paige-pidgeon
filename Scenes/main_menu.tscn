@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://djvcirq1v1nhe"]
+
+[ext_resource type="Script" uid="uid://bcu3ha3qu2lac" path="res://Scenes/main_menu.gd" id="1_opfnp"]
+[ext_resource type="Texture2D" uid="uid://d21cl2ssv8dc0" path="res://Assets/Title Screen.png" id="2_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://dsbvq1sxd3vir" path="res://Buttons/Ui Start.png" id="3_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://dn5barg6kcmg8" path="res://Buttons/Ui Start click.png" id="4_trj04"]
+[ext_resource type="Texture2D" uid="uid://cv5abi06twjhb" path="res://Buttons/Ui Quit.png" id="5_16hvj"]
+[ext_resource type="Texture2D" uid="uid://b73xhsat0hyvk" path="res://Buttons/Ui Quit Click.png" id="6_vr1f0"]
+
+[node name="Main Menu" type="Node2D" unique_id=1600777091]
+script = ExtResource("1_opfnp")
+
+[node name="Title Screen" type="Sprite2D" parent="." unique_id=401485277]
+position = Vector2(577.25, 327)
+scale = Vector2(0.60078126, 0.6)
+texture = ExtResource("2_cp0ys")
+
+[node name="Button Manager" type="Control" parent="." unique_id=243863851]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="TextureButton" parent="Button Manager" unique_id=396683858]
+layout_mode = 0
+offset_left = 436.00003
+offset_top = 196.99998
+offset_right = 566.0
+offset_bottom = 231.99998
+scale = Vector2(1.7763654, 1.8807257)
+texture_normal = ExtResource("3_yhxw7")
+texture_pressed = ExtResource("4_trj04")
+
+[node name="Exit" type="TextureButton" parent="Button Manager" unique_id=652631318]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 315.0
+offset_right = 561.0
+offset_bottom = 347.0
+scale = Vector2(1.8128455, 1.8850785)
+texture_normal = ExtResource("5_16hvj")
+texture_pressed = ExtResource("6_vr1f0")
+
+[connection signal="pressed" from="Button Manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button Manager/Exit" to="." method="_on_exit_pressed"]

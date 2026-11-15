@@ -7,6 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yb8li"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb8li"]
+size = Vector2(49, 41)
 
 [node name="Chest" type="Area2D" unique_id=1670544016]
 script = ExtResource("1_ghm5h")
@@ -15,6 +16,7 @@ script = ExtResource("1_ghm5h")
 texture = ExtResource("2_fqgxf")
 
 [node name="ChestClosed" type="Sprite2D" parent="." unique_id=689059927]
+scale = Vector2(1.6874999, 1.4687501)
 texture = ExtResource("3_2bf1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2069039214]
@@ -23,6 +25,7 @@ shape = SubResource("CircleShape2D_yb8li")
 [node name="Area2D" type="Area2D" parent="." unique_id=676208252]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1426438867]
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_yb8li")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

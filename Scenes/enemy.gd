@@ -14,7 +14,7 @@ var enemyHealth : int = 10
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
-	health_bar.max_value = enemyHealth
+	health_bar.max_value = 10
 	health_bar.value = enemyHealth
 	animated_sprite.play("enemy_hop")
 
