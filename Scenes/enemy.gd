@@ -4,6 +4,7 @@ class_name enemy
 var speed = 130
 var player_chase = false
 var player = null
+var is_hit = false
 
 var enemyHealth : int = 10
 
@@ -14,7 +15,7 @@ var enemyHealth : int = 10
 func _ready():
 	health_bar.max_value = enemyHealth
 	health_bar.value = enemyHealth
-	animated_sprite.play("idle")
+	animated_sprite.play("enemy_hop")
 
 func take_damage (amount: int) -> void:
 	enemyHealth -= amount
@@ -32,14 +33,13 @@ func update_health_ui() -> void:
 		health_bar.visible = false 
 
 func show_damage(amount: int) -> void:
-	damage_splash.modulate = Color.RED of amount == 2 else Color (1, 0.5, 0)
-	damage.splash.visible = true
+	damage_splash.modulate = Color.RED if amount == 2 else Color (1, 0.5, 0)
+	damage_splash.visible = true
 
 func start_hit_cooldown() -> void: 
-	is_hit = true
-	await get_tree().create_timer(HIT_COOLDOWN).timeout
-	is_hit = false
-	damage_splash.visible = false
+		is_hit = true
+		is_hit = false
+		damage_splash.visible = false
 
 func die() -> void:
 		queue_free()
@@ -48,17 +48,17 @@ func get_health() -> int:
 	return enemyHealth
 
 func _physics_process(delta):
-	if player_chase:
-			
+		if player_chase:
 			position += (player.position - position)/speed
-			print("moving")
-		
-	move_and_slide()
+			move_and_slide()
 		
 		
-	if velocity.length() >0:
-		$AnimatedSprite2D.play("enemy_hop")
-		
+			if velocity.length() >0:
+					$AnimatedSprite2D.play("enemy_hop")
+					animated_sprite.flip_h = velocity.x < 0
+		else:
+					velocity = Vector2.ZERO
+					animated_sprite.play("enemy_hop")
 		
 		
 func _on_detection_area_body_entered(body):

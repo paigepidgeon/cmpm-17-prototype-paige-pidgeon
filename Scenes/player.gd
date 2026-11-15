@@ -27,7 +27,7 @@ func get_input() -> void:
 		canUseHorsepower = true
 		
 	if Input.is_action_just_pressed("gallop") and canUseHorsepower:
-		# Horsepower attacks (double the damage somewhere here)
+		# Horsepower attacks (double the damage somewhere here) note to self?
 		hit_box.monitoring = true
 		isAttacking = true
 		attackCounter = 0
@@ -40,7 +40,8 @@ func get_input() -> void:
 	if Input.is_action_pressed("A"):
 		velocity.x = lerp(velocity.x, -speed, acceleration)
 		$AnimatedSprite2D.flip_h = true
-	else: velocity.x = lerp(velocity.x, 0.0 , deceleration)
+	else: 
+		velocity.x = lerp(velocity.x, 0.0 , deceleration)
 	if Input.is_action_pressed("S"):
 		velocity.y = lerp(velocity.y, speed , acceleration)
 	elif Input.is_action_pressed("W"):
