@@ -5,6 +5,7 @@ var speed = 130
 var player_chase = false
 var player = null
 var is_hit = false
+const HIT_COOLDOWN = 0.3
 
 var enemyHealth : int = 10
 
@@ -38,6 +39,7 @@ func show_damage(amount: int) -> void:
 
 func start_hit_cooldown() -> void: 
 		is_hit = true
+		await get_tree().create_timer(HIT_COOLDOWN)
 		is_hit = false
 		damage_splash.visible = false
 
@@ -49,7 +51,8 @@ func get_health() -> int:
 
 func _physics_process(delta):
 		if player_chase:
-			position += (player.position - position)/speed
+			var direction = (player.position - position).normalized()
+			velocity = direction * speed
 			move_and_slide()
 		
 		
@@ -62,12 +65,13 @@ func _physics_process(delta):
 		
 		
 func _on_detection_area_body_entered(body):
-	player = body
-	player_chase = true
-	print ("detected")
+	if body.name == "player": 
+		player = body
+		player_chase = true
+	
 	
 func _on_detection_area_body_exited(body):
-	player = null
-
-	player_chase = false
-	print("exited")
+	if body.name == "player": 
+		player = null
+		player_chase = false
+		print("exited")

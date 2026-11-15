@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c7bjt0jjgm7td"]
+
+[ext_resource type="Script" uid="uid://b5xhyh1ec085l" path="res://health_item.gd" id="1_wqug0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yb8li"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mke84"]
+
+[node name="HolyGrail" type="RigidBody2D" unique_id=1883866123]
+script = ExtResource("1_wqug0")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=1262920017]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2130824379]
+shape = SubResource("CircleShape2D_yb8li")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1169987231]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=779468654]
+shape = SubResource("CircleShape2D_mke84")
