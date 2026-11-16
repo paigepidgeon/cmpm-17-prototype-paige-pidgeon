@@ -80,6 +80,9 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			canUseHorsepower = false
 		else:
 			body.take_damage(1)
+	# Handle enemy's Sploink attack
+	elif body.name == "enemy":  # Replace "enemy" with your enemy's name if different
+		take_damage(2)
 
 func update_health_ui() -> void:
 	health_bar.value = playerHealth
