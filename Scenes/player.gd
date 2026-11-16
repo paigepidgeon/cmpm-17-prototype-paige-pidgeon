@@ -5,18 +5,15 @@ class_name player
 @export var acceleration : float = 0.05
 @export var deceleration : float = 0.05
 @onready var hit_box: Area2D = $hitbox
-
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var isAttacking = false
-var attackCounter = 0
-var canUseHorsepower = false
+var gallopCounter = 0
 var playerHealth : int = 20
 var maxHealth : int = 20
 
 func _ready() -> void:
 	hit_box.monitoring = false
-
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
@@ -24,28 +21,24 @@ func _physics_process(_delta: float) -> void:
 	get_input()
 
 func get_input() -> void:
-	
 	if Input.is_action_just_pressed("Gallop") and not isAttacking:
 		hit_box.monitoring = true
 		isAttacking = true
-		attackCounter += 1
-		$AnimatedSprite2D.play("gallop")
+		animated_sprite.play("gallop")
+		gallopCounter += 1
 
-	
-	if Input.is_action_just_pressed("horsepower") and canUseHorsepower:
+	if Input.is_action_just_pressed("horsepower") and not isAttacking and gallopCounter >= 2:
 		hit_box.monitoring = true
 		isAttacking = true
-		attackCounter = 2
-		canUseHorsepower = false
-		$AnimatedSprite2D.play("horsepower")
+		animated_sprite.play("horsepower")
+		gallopCounter = 0
 
-	
 	if Input.is_action_pressed("D"):
 		velocity.x = lerp(velocity.x, speed, acceleration)
-		$AnimatedSprite2D.flip_h = false
+		animated_sprite.flip_h = false
 	if Input.is_action_pressed("A"):
 		velocity.x = lerp(velocity.x, -speed, acceleration)
-		$AnimatedSprite2D.flip_h = true
+		animated_sprite.flip_h = true
 	else:
 		velocity.x = lerp(velocity.x, 0.0, deceleration)
 
@@ -58,38 +51,32 @@ func get_input() -> void:
 
 func update_animation() -> void:
 	if isAttacking:
-		pass  
+		pass
 	elif velocity.length() > 0:
-		$AnimatedSprite2D.play("player_walk")
+		animated_sprite.play("player_walk")
 	else:
-		$AnimatedSprite2D.frame = 0  # Idle frame
+		animated_sprite.frame = 0
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if $AnimatedSprite2D.animation == "Gallop":
+	if animated_sprite.animation == "gallop":
 		isAttacking = false
 		hit_box.monitoring = false
-		canUseHorsepower = true  # Enable Horsepower after Gallop finishes
-	elif $AnimatedSprite2D.animation == "horsepower":
+	elif animated_sprite.animation == "horsepower":
 		isAttacking = false
 		hit_box.monitoring = false
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage"):
-		if canUseHorsepower:
+	if body.name == "enemy" and body.has_method("take_damage"):
+		if animated_sprite.animation == "horsepower":
 			body.take_damage(2)
-			canUseHorsepower = false
 		else:
 			body.take_damage(1)
-	
 	elif body.name == "enemy":
 		take_damage(2)
-
 
 func take_damage(amount: int) -> void:
 	playerHealth -= amount
 	playerHealth = max(playerHealth, 0)
-
-
 	if playerHealth <= 0:
 		player_died()
 

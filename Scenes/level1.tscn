@@ -133,6 +133,9 @@ position = Vector2(679, 11)
 
 [node name="Player" parent="." unique_id=553625836 instance=ExtResource("3_y4dr7")]
 position = Vector2(81, 43)
+speed = 130.0
+acceleration = 0.05
+deceleration = 0.05
 
 [node name="enemy2" parent="." unique_id=805592000 instance=ExtResource("2_lyd6k")]
 position = Vector2(191, 273)

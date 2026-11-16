@@ -4,6 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://qorlm8pqlmvg" path="res://ArtFiles/Slime_Enemy_Sprite_Sheet_Godot_CMPM_17_Paige_Pidgeon-Sheet.png" id="1_hghv2"]
 [ext_resource type="Texture2D" uid="uid://dodwnti01mw2u" path="res://Assets/Slime_Enemy_sploink_Sprite_Sheet_CMPM_17_Paige_Pidgeon-Sheet.png" id="3_afpow"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mif70"]
+radius = 175.96895
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyd6k"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1f0kj"]
 atlas = ExtResource("1_hghv2")
 region = Rect2(0, 0, 32, 32)
@@ -87,20 +92,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mif70"]
-radius = 175.96895
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_lyd6k"]
-
 [node name="enemy" type="CharacterBody2D" unique_id=696496068]
 script = ExtResource("1_1f0kj")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=893163534]
-position = Vector2(5.4836273e-06, 0.2500018)
-scale = Vector2(1.1875004, 1.1406251)
-sprite_frames = SubResource("SpriteFrames_ne65n")
-animation = &"sploink"
-autoplay = "enemy_hop"
 
 [node name="detection_area" type="Area2D" parent="." unique_id=1932940063]
 position = Vector2(-2.4795532e-05, 0.24999428)
@@ -112,6 +105,13 @@ shape = SubResource("CircleShape2D_mif70")
 position = Vector2(-2.4795532e-05, 0.24999428)
 shape = SubResource("CircleShape2D_lyd6k")
 disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=893163534]
+position = Vector2(5.4836273e-06, 0.2500018)
+scale = Vector2(1.1875004, 1.1406251)
+sprite_frames = SubResource("SpriteFrames_ne65n")
+animation = &"enemy_hop"
+autoplay = "enemy_hop"
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
