@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c5r68tv1m5lwq" path="res://Buttons/Health bar Player 3.png" id="1_g6l6n"]
 [ext_resource type="Texture2D" uid="uid://ccf8aj4y6ohff" path="res://Buttons/Health bar Player 1.png" id="2_qui0h"]
 [ext_resource type="Texture2D" uid="uid://ba34u8xgu0fmc" path="res://Assets/Health bar Player 2.png" id="3_vrfts"]
-[ext_resource type="Script" uid="uid://cvwvurvbiv4cy" path="res://health.gd" id="4_qui0h"]
+[ext_resource type="Script" uid="uid://cvwvurvbiv4cy" path="res://Scenes/health.gd" id="4_qui0h"]
 
 [node name="HealhBar" type="CanvasLayer" unique_id=1685145137]
 

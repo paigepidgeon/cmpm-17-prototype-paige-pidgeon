@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c00ha6awpdt4t" path="res://Assets/tileset_template_3-export.png" id="1_ng0s0"]
 [ext_resource type="PackedScene" uid="uid://bmen3d8rbe25n" path="res://Scenes/player.tscn" id="2_76ybr"]
 [ext_resource type="PackedScene" uid="uid://w1dftsycb21l" path="res://Scenes/enemy.tscn" id="3_s8nj6"]
-[ext_resource type="PackedScene" uid="uid://ut2x43g4uet4" path="res://UI.tscn" id="4_s8nj6"]
+[ext_resource type="PackedScene" uid="uid://ut2x43g4uet4" path="res://Scenes/UI.tscn" id="4_s8nj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gslm"]
 

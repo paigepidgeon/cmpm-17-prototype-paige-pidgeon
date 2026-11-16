@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name player
 
 @export var speed : float = 130
-@export var acceleration : float = 0.05
-@export var deceleration : float = 0.05
+@export var acceleration : float = 0.07
+@export var deceleration : float = 0.07
 @onready var hit_box: Area2D = $hitbox
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 

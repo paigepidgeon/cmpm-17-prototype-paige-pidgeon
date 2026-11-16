@@ -1,25 +1,24 @@
-extends RigidBody2D
+extends Area2D
+class_name HealthItem
 
-@export var heal_amount : int = 20 
+@export var health_to_give: int = 20
 
-@export var rigidbody2D : float = 3.0 
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var pickup_area : Area2D = $pickup_area
+func _ready():
+	pass
 
+func _on_body_entered(body):
+	if body.name == "player":
+		if body.has_method("get_health") and body.has_method("set_health"):
+			var current_health = body.get_health()
+			var max_health = body.maxHealth if body.has_method("maxHealth") else health_to_give
 
-func _ready() -> void:
-	set_gravity_scale(gravity_scale)
-	linear_damp = 0.3
-	angular_damp = 0.5
-	
-	var direction = Vector2(randf_range(-0.5, 0.5), -1.0).normalized()
+			if current_health < max_health:
+				body.set_health(max_health)
+				queue_free()
+		else:
+			print("Player script not found or missing health methods")
 
-	
-	apply_torque_impulse(randf_range(-10.0, 10.0) * 200)
-
-func _on_pickup_area_body_entered(body):
-	if body.naame == "player" and body.has_method("heal"):
-		
-		body.heal(body.maxHealth)
-		queue_free() 
+func _on_visibility_notifier_2d_screen_exited():
+	queue_free()
