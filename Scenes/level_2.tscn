@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c00ha6awpdt4t" path="res://Assets/tileset_template_3-export.png" id="1_smnlx"]
 [ext_resource type="PackedScene" uid="uid://w1dftsycb21l" path="res://Scenes/enemy.tscn" id="2_12fag"]
 [ext_resource type="PackedScene" uid="uid://bmen3d8rbe25n" path="res://Scenes/player.tscn" id="3_12fag"]
+[ext_resource type="PackedScene" uid="uid://ut2x43g4uet4" path="res://UI.tscn" id="5_cggpd"]
 [ext_resource type="PackedScene" uid="uid://p3nq1edrjeer" path="res://Scenes/Chest.tscn" id="5_v36qu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jotil"]
@@ -248,6 +249,8 @@ position = Vector2(2137, 77)
 
 [node name="Player" parent="." unique_id=553625836 instance=ExtResource("3_12fag")]
 position = Vector2(845, 235)
+
+[node name="HealhBar" parent="Player" unique_id=1685145137 instance=ExtResource("5_cggpd")]
 
 [node name="Chest" parent="." unique_id=1670544016 instance=ExtResource("5_v36qu")]
 position = Vector2(952, 115)

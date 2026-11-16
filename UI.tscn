@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ut2x43g4uet4"]
+
+[ext_resource type="Texture2D" uid="uid://c5r68tv1m5lwq" path="res://Buttons/Health bar Player 3.png" id="1_g6l6n"]
+[ext_resource type="Texture2D" uid="uid://ccf8aj4y6ohff" path="res://Buttons/Health bar Player 1.png" id="2_qui0h"]
+[ext_resource type="Texture2D" uid="uid://ba34u8xgu0fmc" path="res://Assets/Health bar Player 2.png" id="3_vrfts"]
+[ext_resource type="Script" uid="uid://cvwvurvbiv4cy" path="res://health.gd" id="4_qui0h"]
+
+[node name="HealhBar" type="CanvasLayer" unique_id=1685145137]
+
+[node name="base" type="Sprite2D" parent="." unique_id=952549542]
+position = Vector2(117, 72)
+texture = ExtResource("1_g6l6n")
+
+[node name="base2" type="Sprite2D" parent="." unique_id=1010294548]
+position = Vector2(117, 72)
+texture = ExtResource("2_qui0h")
+
+[node name="health" type="Sprite2D" parent="." unique_id=751183180]
+position = Vector2(117, 72)
+texture = ExtResource("3_vrfts")
+script = ExtResource("4_qui0h")

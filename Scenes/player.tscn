@@ -68,9 +68,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gymyn")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"gallop",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -85,7 +85,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h4iuc")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"horsepower",
 "speed": 5.0
 }, {
@@ -117,13 +117,13 @@ load_path = "res://.godot/imported/Carrot.png-b3763d99ba1c59a451f95943ebb08c56.c
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb8li"]
 size = Vector2(29, 29)
 
-[node name="Player" type="CharacterBody2D" unique_id=553625836]
+[node name="Player" type="CharacterBody2D" unique_id=553625836 groups=["player"]]
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606868985]
 scale = Vector2(0.7421875, 0.66796875)
 sprite_frames = SubResource("SpriteFrames_nbtmm")
-animation = &"gallop"
+animation = &"player_walk"
 autoplay = "player_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1041223361]
