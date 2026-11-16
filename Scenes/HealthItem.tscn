@@ -1,5 +1,17 @@
 [gd_scene format=3 uid="uid://c7bjt0jjgm7td"]
 
-[node name="Node2D" type="Node2D" unique_id=461973600]
+[ext_resource type="Script" uid="uid://b5xhyh1ec085l" path="res://Scenes/health_item.gd" id="1_mjrio"]
+[ext_resource type="Texture2D" uid="uid://cdbrebdqdks70" path="res://Assets/health_item.png" id="2_cskhv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yb8li"]
+
+[node name="Node2D" type="RigidBody2D" unique_id=889162006]
+script = ExtResource("1_mjrio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=243079169]
+shape = SubResource("CapsuleShape2D_yb8li")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=694909776]
+texture = ExtResource("2_cskhv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=305605676]
