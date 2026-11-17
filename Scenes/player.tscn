@@ -115,9 +115,9 @@ height = 10.0
 load_path = "res://.godot/imported/Carrot.png-b3763d99ba1c59a451f95943ebb08c56.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb8li"]
-size = Vector2(29, 29)
+size = Vector2(54, 48)
 
-[node name="Player" type="CharacterBody2D" unique_id=553625836 groups=["player"]]
+[node name="player" type="CharacterBody2D" unique_id=553625836 groups=["player"]]
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606868985]
@@ -148,7 +148,6 @@ scale_amount_max = 0.5
 [node name="hitbox" type="Area2D" parent="." unique_id=1528369096]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=778645065]
-position = Vector2(27, 0)
 shape = SubResource("RectangleShape2D_yb8li")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

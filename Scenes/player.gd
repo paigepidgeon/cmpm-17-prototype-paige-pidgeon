@@ -65,7 +65,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		isAttacking = false
 		hit_box.monitoring = false
 
-func _on_hitbox_body_entered(body: Node2D) -> void:
+func _on_hitbox_body_entered(body: Area2D) -> void:
 	if body.name == "enemy" and body.has_method("take_damage"):
 		if animated_sprite.animation == "horsepower":
 			body.take_damage(2)

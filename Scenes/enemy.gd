@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name enemy
 
-var speed = 130
+var speed = 20
 var player_chase = false
 var player_reference = null
 var is_hit = false
@@ -36,11 +36,11 @@ func _physics_process(delta):
 		animated_sprite.play("enemy_hop")
 
 func _on_detection_area_body_entered(body):
-	if body.name == "player":
+	if body is player:
 		player_reference = body
 		player_chase = true
 
 func _on_detection_area_body_exited(body):
-	if body.name == "player":
+	if body is player:
 		player_reference = null
 		player_chase = false
