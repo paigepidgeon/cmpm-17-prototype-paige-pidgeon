@@ -234,6 +234,7 @@ sources/0 = SubResource("TileSetAtlasSource_nmjpi")
 script = ExtResource("1_1q6tm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="goal2" unique_id=1181182168]
+z_index = 1
 position = Vector2(2537, 271)
 shape = SubResource("RectangleShape2D_jotil")
 
@@ -250,7 +251,7 @@ position = Vector2(2137, 77)
 [node name="Player" parent="." unique_id=553625836 instance=ExtResource("3_12fag")]
 position = Vector2(845, 235)
 
-[node name="HealhBar" parent="Player" unique_id=1685145137 instance=ExtResource("5_cggpd")]
+[node name="HealhBar" parent="." unique_id=1685145137 instance=ExtResource("5_cggpd")]
 
 [node name="Chest" parent="." unique_id=1670544016 instance=ExtResource("5_v36qu")]
 position = Vector2(952, 115)

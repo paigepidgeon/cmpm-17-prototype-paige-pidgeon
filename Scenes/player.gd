@@ -4,7 +4,7 @@ class_name player
 @export var speed : float = 130
 @export var acceleration : float = 0.07
 @export var deceleration : float = 0.07
-@onready var hit_box: Area2D = $hitbox
+@onready var hit_box: Area2D = $hit_box
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var isAttacking = false
@@ -13,7 +13,7 @@ var playerHealth : int = 20
 var maxHealth : int = 20
 
 func _ready() -> void:
-	hit_box.monitoring = false
+	hit_box.monitoring = true
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
@@ -31,7 +31,7 @@ func get_input() -> void:
 		hit_box.monitoring = true
 		isAttacking = true
 		animated_sprite.play("horsepower")
-		gallopCounter = 0
+		gallopCounter = 2
 
 	if Input.is_action_pressed("D"):
 		velocity.x = lerp(velocity.x, speed, acceleration)
@@ -65,20 +65,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		isAttacking = false
 		hit_box.monitoring = false
 
-func _on_hitbox_body_entered(body: Area2D) -> void:
-	if body.name == "enemy" and body.has_method("take_damage"):
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy") and body.has_method("take_damage"):
 		if animated_sprite.animation == "horsepower":
 			body.take_damage(2)
 		else:
 			body.take_damage(1)
-	elif body.name == "enemy":
-		take_damage(2)
-
-func take_damage(amount: int) -> void:
-	playerHealth -= amount
-	playerHealth = max(playerHealth, 0)
-	if playerHealth <= 0:
-		player_died()
-
-func player_died() -> void:
-	queue_free()

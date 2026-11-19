@@ -145,10 +145,10 @@ initial_velocity_max = 50.0
 scale_amount_min = 0.25
 scale_amount_max = 0.5
 
-[node name="hitbox" type="Area2D" parent="." unique_id=1528369096]
+[node name="hit_box" type="Area2D" parent="." unique_id=1528369096]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=778645065]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box" unique_id=778645065]
 shape = SubResource("RectangleShape2D_yb8li")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="hit_box" to="." method="_on_hitbox_body_entered"]

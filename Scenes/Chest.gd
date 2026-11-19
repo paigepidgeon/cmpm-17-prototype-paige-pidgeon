@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("Open") && in_range && !opened:
 		player.add_money(8)
 		opened = true
-		open.emit()
+		open.emit("HealthItem")
 
 func _on_open_radius_body_entered(body: Node2D) -> void:
 	if body is player:
@@ -24,3 +24,9 @@ func _on_open_radius_body_entered(body: Node2D) -> void:
 func _on_open_radius_body_exited(body: Node2D) -> void:
 	if body is player:
 		in_range = false
+		
+		
+func _on_body_entered(body):
+	if body.is_in_group("HealthItem"):
+		body.restore_health()
+		queue_free()

@@ -1,5 +1,5 @@
 extends Area2D
-@onready var sfx_levelup = $sfx_jump
+
 
 
 func _on_body_entered(body: Node2D) -> void:

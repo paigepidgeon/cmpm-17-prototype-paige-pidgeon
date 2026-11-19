@@ -1,9 +1,9 @@
-extends Area2D
+extends Node2D
 class_name HealthItem
 
 @export var health_to_give: int = 20
 
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 
 func _ready():
 	pass

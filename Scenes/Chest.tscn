@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://dbsx3l7itrwtj" path="res://Scenes/Chest.gd" id="1_ghm5h"]
 [ext_resource type="Texture2D" uid="uid://bhbgkqgw10w2i" path="res://Assets/chest_open.png" id="2_fqgxf"]
 [ext_resource type="Texture2D" uid="uid://dehxmig7c0q3t" path="res://Assets/chest_closed.png" id="3_2bf1p"]
+[ext_resource type="PackedScene" uid="uid://c7bjt0jjgm7td" path="res://Scenes/HealthItem.tscn" id="4_2bf1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yb8li"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb8li"]
 size = Vector2(49, 41)
 
-[node name="Chest" type="Area2D" unique_id=1670544016]
+[node name="Chest" type="StaticBody2D" unique_id=1945962806]
 script = ExtResource("1_ghm5h")
 
 [node name="ChestOpen" type="Sprite2D" parent="." unique_id=1145978648]
@@ -32,7 +33,7 @@ shape = SubResource("RectangleShape2D_yb8li")
 self_modulate = Color(1, 0.7058824, 0.08235294, 0.47058824)
 position = Vector2(0, 18)
 scale = Vector2(2.28, 2.28)
-skew = 0.050614547
+skew = 0.050614476
 amount = 12
 lifetime = 1.21
 explosiveness = 0.13
@@ -47,4 +48,4 @@ color = Color(0.92156863, 0.59607846, 0.16470589, 1)
 hue_variation_min = 0.18
 hue_variation_max = 0.74
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Node2D" parent="." unique_id=1302993313 instance=ExtResource("4_2bf1p")]
